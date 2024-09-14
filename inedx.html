@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>E-commerce Website</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      .main {
+        width: 100%;
+        height: auto;
+        padding: 50px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+      }
+      .card {
+        width: 300px;
+        height: 500px;
+        padding-inline: 25px;
+        margin-top: 50px;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .card img {
+        width: 100%;
+        height: 50%;
+        object-fit: cover;
+        border-radius: 10px;
+      }
+      .card h1 {
+        font-size: 13px;
+        text-align: justify;
+        padding-top: 5px;
+      }
+      .card p {
+        font-size: 12px;
+        padding-top: 15px;
+        text-align: justify;
+      }
+      .card button {
+        width: 100%;
+        height: 35px;
+        font-size: 13px;
+        background-color: #ffda23;
+        color: #000000;
+        border: none;
+        border-radius: 40px;
+      }
+      .card button:hover {
+        background-color: #f8bb03;
+      }
+      footer {
+        padding: 20px;
+        background-color: #333;
+        color: white;
+        text-align: center;
+      }
+      #viewMore {
+        width: 200px;
+        margin: 40px auto;
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">Amazone</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link active" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Shop</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Electric</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Mobails</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div
+      id="carouselExampleControls"
+      class="carousel slide"
+      data-bs-ride="carousel mt-3"
+    >
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img
+            src="./Assets/s1.jpg"
+            class="d-block w-100"
+            alt="Slide 1"
+          />
+        </div>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img
+            src="./Assets/s4.jpg"
+            class="d-block w-100"
+            alt="Slide 1"
+          />
+        </div>
+        <div class="carousel-item">
+          <img
+            src="./Assets/s2.jpeg"
+            class="d-block w-100"
+            alt="Slide 2"
+          />
+        </div>
+        <div class="carousel-item">
+          <img
+            src="./Assets/s3.jpg"
+            class="d-block w-100"
+            alt="Slide 3"
+          />
+        </div>
+      </div>
+      <button
+        class="carousel-control-prev"
+        type="button"
+        data-bs-target="#carouselExampleControls"
+        data-bs-slide="prev"
+      >
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button
+        class="carousel-control-next"
+        type="button"
+        data-bs-target="#carouselExampleControls"
+        data-bs-slide="next"
+      >
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+
+    <div class="main" id="mainbox"></div>
+
+    <button id="viewMore" class="btn btn-primary">View More</button>
+
+    <footer>
+      <p>&copy; 2024 Amazon. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+      function createCard(imgSrc, title, detail, buttonText) {
+        let mainbox = document.getElementById("mainbox");
+        let card = document.createElement("div");
+        card.setAttribute("class", "card");
+
+        let cardImg = document.createElement("img");
+        cardImg.setAttribute("src", imgSrc);
+
+        let cardTitle = document.createElement("h1");
+        cardTitle.innerText = title;
+
+        let cardDetail = document.createElement("p");
+        cardDetail.innerText = detail;
+
+        let cardButton = document.createElement("button");
+        cardButton.innerText = buttonText;
+
+        card.append(cardImg);
+        card.append(cardTitle);
+        card.append(cardDetail);
+        card.append(cardButton);
+
+        mainbox.append(card);
+      }
+
+      let cards = [];
+      for (let i = 1; i <= 9; i++) {
+        cards.push({
+          imgSrc: "./Assets/3.png",
+          title: `ZEBRONICS ZEB-JAGUAR Wireless Mouse, 2.4GHz with USB Nano Receiver, High Precision Optical Tracking, 4 Buttons, Plug & Play (Black+Grey)`,
+          detail: `Enjoy seamless connectivity with 2.4GHz, Plug & Play 4 Buttons: Left Click, Right Click, Middle Click (H7 Wheel), DPI Button High Precision Sensor with 1200 DPI for smooth cursor movements}`,
+          buttonText: "Add to Cart",
+        });
+        cards.push({
+          imgSrc: "./Assets/1.jpg",
+          title: `Ambrane Unbreakable 3A Fast Charging 1.5m Braided Type C Cable for Smartphones, Tablets & other Type C devices.`,
+          detail: `3A Fast Charging - Delivers 3A fast charging and 480 Mbps data transfer speed. Quick Charge 2.0/ 3.0 - Supports Quick Charge (QC) 2.0/3.0 to deliver rapid charging speed. Wide Compatibility Type-C enabled devices.`,
+          buttonText: "Add to Cart",
+        });
+        cards.push({
+          imgSrc: "./Assets/4.jpg",
+          title: `Amazon Brand - Solimo Puffer Case Camera Protection Soft Back Cover for Oppo F15 - Black - Rubber MATERIAL: Crafted with high-grade Silicon TPU`,
+          detail: `The matte back case epitomizes durability and flexibility. The Silicon TPU construction ensures lasting durability and provides a comfortable, non-slip grip, enhancing the overall user experience`,
+          buttonText: "Add to Cart",
+        });
+        cards.push({
+          imgSrc: "./Assets/2.jpg",
+          title: `Qi Wireless car charger with sucker with automatic adjustment Fast charge, compatible with all devices that support Qi ™ technology`,
+          detail: `Equipped with adjustable bracket with knob to adjust the viewing angle with 360° range and with sucker on it's base to fix it on the car dashboard Equipped also with air vent clip to fix the charger on most air intakes on cars`,
+          buttonText: "Add to Cart",
+        });
+        cards.push({
+          imgSrc: "./Assets/5.jpg",
+          title: `pTron Dynamo Nergy 10000mAh 22.5W Fast Charging Power Bank, 20W PD Fast Charging, Supports All bradn smartphone 3 Outputs & 1 Input (Green)`,
+          detail:
+            "pTron Dynamo Nergy power bank has a 10000mAh Li-polymer battery & 22.5W (10V-2.25A USB) fast charging output | Made-in-India power bank | A short 3A charging Type-C USB cable",
+          buttonText: "Add to Cart",
+        });
+        cards.push({
+          imgSrc: "./Assets/6.jpg",
+          title: `Lava Blaze X 5G - Starlight Purple(6GB RAM 128GB Storage) - Segment First 5G Curved AMOLED Display | 64MP Sony Sensor Camera | Upto 12GB Expandable RAM `,
+          detail:
+            '16.94 cm(6.67") 120Hz Curved Amoled Display with Widevine L1 DRM Protection - Enjoy all your Content in High Resolution 64MP Rear Camera (Sony Sensor), 16MP selfie camera',
+          buttonText: "Add to Cart",
+        });
+        cards.push({
+          imgSrc: "./Assets/7.jpg",
+          title: `POCO M6 5G (Galactic Black, 4GB RAM, 128GB Storage) | MediaTek Dimensity 6100+ 5G Processor | 5000 mAh Battery + 18W Fast Charging | 50 MP AI Dual-Camera`,
+          detail:
+            'Processor: Powerful MediaTek Dimensity 6100+ 5G SoC | 8GB of RAM including 4GB virtual | 6.74" HD+ 90Hz display | 50MP AI Dual camera | Fast Side fingerprint',
+          buttonText: "Add to Cart",
+        });
+        cards.push({
+          imgSrc: "./Assets/8.jpg",
+          title: `iQOO Neo 7 Pro 5G (Fearless Flame, 8Gb Ram, 128Gb Storage) | Snapdragon 8+ Gen 1 | Independent Gaming Chip | Flagship 50Mp Ois Camera`,
+          detail:
+            "Snapdragon 8+ Gen 1 Mobile Platform adopts TSMC 4nm Process & has Superior Flagship Grade Performance with LPDDR5 RAM & UFS 3.1 Storage Independent Gaming Chip boosts FPS by Game Frame Interpolation.",
+          buttonText: "Add to Cart",
+        });
+        cards.push({
+          imgSrc: "./Assets/9.jpg",
+          title:
+            "Lava Blaze 5G (Glass Green, 4GB RAM, UFS 2.2 128GB Storage) | 5G Ready | 50MP AI Triple Camera | Upto 7GB Expandable RAM ",
+          detail:
+            "Supports All India 5G Bands - All sub-6mm-wave bands being auctioned and bought by Operators in India 4+3*GB RAM with UFS 2.2 compliant 128GB ROM, Expandable up to 1 TB (*Virtual RAM)",
+          buttonText: "Add to Cart",
+        });
+        cards.push({
+          imgSrc: "./Assets/10.jpg",
+          title:
+            "American Tourister Valex 28 Ltrs Large Laptop Backpack Space For All Your +1s: With dimensions of 32.5 x 47.5 x 20 cms (LxHxW) and multiple compartments",
+          detail:
+            "Fashionably Functional Made with the finest material, it ensures lasting durability for everyday use without adding excess weight. The breathable Mesh durability to provide superior comfort.",
+          buttonText: "Add to Cart",
+        });
+        cards.push({
+          imgSrc: "./Assets/11.jpg",
+          title:
+            "Urban Jungle by Safari Metro Roll-Top Backpack 15 Liters Water Resistant, Top-Open, Padded, Premium Polyurethane Laptop Backpack for Men and Women",
+          detail:
+            "Premium Craftsmanship: Crafted from premium, lightweight polyurethane fabric, this olive backpack offers exceptional durability and water resistance, ensuring your backpack always paints a pretty picture. ",
+          buttonText: "Add to Cart",
+        });
+        cards.push({
+          imgSrc: "./Assets/12.jpg",
+          title:
+            "Urban Jungle by Safari Roam Briefpack 22 Liters Water Resistant, Premium Polyester and Microfibre Laptop Backpack",
+          detail:
+            "Premium Craftsmanship: Crafted from a premium blend of polyester and microfibre, this backpack offers unmatched durability and water resistance. Tuck away the shoulder straps, allowing you to convert it from a backpack to a briefcase.",
+          buttonText: "Add to Cart",
+        });
+        cards.push({
+          imgSrc: "./Assets/13.jpg",
+          title:
+            "Urban Jungle by Safari Passenger Workpack 25 Liters Water Resistant, Padded, Premium Polyester Laptop Backpack",
+          detail:
+            "Premium High-Strength Fabric: Crafted from premium, lightweight polyester fabric, this grey backpack offers exceptional durability and water resistance, while the vibrant orange highlights and a pop contrast pocket.",
+          buttonText: "Add to Cart",
+        });
+        cards.push({
+          imgSrc: "./Assets/14.jpg",
+          title:
+            "Razer BlackShark V2 X Wired Gaming On Ear Headset - Black|7.1 Surround Sound-50mm Drivers-Memory Foam Cushion-for The NPD Group",
+          detail:
+            "The #1 Selling Gaming Peripherals Manufacturer in the US: Source - The NPD Group, Inc., U.S. Retail Tracking Service, Gaming Designed: Keyboards, Mice, PC Headsets, and PC Microphones",
+          buttonText: "Add to Cart",
+        });
+        cards.push({
+          imgSrc: "./Assets/15.jpg",
+          title: "ZEBRONICS Zeb-Blitz USB Gaming Wired On Ear Headphones with Mic with Dolby Atmos, RGB Led, Windows Software Simulated 7.1 Surround Sound",
+          detail: "Experience DOLBY ATMOS with ZEB-BLITZ USB gaming headphones. Add more detail to the audio and get immersed into the game, like never before.",
+          buttonText: "Add to Cart",
+        });
+        cards.push({
+          imgSrc: "./Assets/16.jpg",
+          title: "Razer BlackShark V2 X - White | Multi-Platform Wired Esports On Ear Headset - RZ04-03240700-R3M1 Immersive, 7.1 Surround Sound",
+          detail: "Triforce Titanium 50mm High-End Sound Drivers: Outfitted with cutting-edge, 50mm drivers divided into 3 parts for individual tuning of highs, mids, and lows",
+          buttonText: "Add to Cart",
+        });
+        cards.push({
+          imgSrc: "./Assets/17.jpg",
+          title: "JBL New Launch Live in Ear Buds 3,Hi-Res Audio True ANC TWS,Smart Case with Touch Display,40H Playtime,Wireless Charging,6 Mic.",
+          detail: "Convenient Smart Charging Case for app-free control :You can customize every aspect of your JBL Live Buds 3 earbuds with the 1.45-inch touchscreen display on your Smart Charging Case.",
+          buttonText: "Add to Cart",
+        });
+        cards.push({
+          imgSrc: "./Assets/18.jpg",
+          title: "JBL New Launch Live Beam 3,Hi-Res Audio True ANC TWS,Smart Case with Touch Display,48H Playtime,Wireless Charging,6 Mic,Multipoint Connection",
+          detail: "Convenient Smart Charging Case for app-free control: You can customize every aspect of your JBL Live Beam 3 earbuds with the 1.45-inch touchscreen display on your Smart Charging Case.",
+          buttonText: "Add to Cart",
+        });
+        cards.push({
+          imgSrc: "./Assets/19.jpg",
+          title: "Marshall Emberton II Compact Portable Bluetooth Speaker with 30+ Hours of Playtime, (360° Sound), Dust & Waterproof (IP67) Black & Brass.",
+          detail: "Emberton II is faithful to the iconic heritage design of the brand while taking a more sustainable approach. This speaker’s sturdy build comprises 50% post-consumer",
+          buttonText: "Add to Cart",
+        });
+        cards.push({
+          imgSrc: "./Assets/20.jpg",
+          title: "Zebronics ZEB-COUNTY 3W Wireless Bluetooth Portable Speaker With Supporting Carry Handle, USB, SD Card, AUX, FM & Call Function. ",
+          detail: "Zeb-county is a compact and handy portable speaker that comes with multi-connectivity options like wireless BT/USB/micro SD and AUXThe speaker comes with a call function too",
+          buttonText: "Add to Cart",
+        });
+        cards.push({
+          imgSrc: "./Assets/21.jpg",
+          title: "Razer Huntsman Mini Analog - US 60% Gaming Keyboard with Analog Optical Switches - RZ03-04340100-R3M1 las funcionalidades de la versión analog.",
+          detail: "Pesima experiencia, se supone que es la versión analog pero el programa synapse de razer lo detecta como un mercury white por lo que no es posible utilizar ",
+          buttonText: "Add to Cart",
+        });
+        cards.push({
+          imgSrc: "./Assets/22.jpg",
+          title: "Captcha (1 Year Warranty Combo Pack of 2 Items - Bluetooth D116 SmartWatch with Heart Rate Monitor, Bluetooth D116 SmartWatch with Heart Rate Monitor",
+          detail: "Use a larger 1.3-inch screen , larger words, clearer, high sensitivity touch, the screen can achieve various operations, smart call reminder, camera, steps, calorie",
+          buttonText: "Add to Cart",
+        });
+        cards.push({
+          imgSrc: "./Assets/23.jpg",
+          title: "CP PLUS 3MP Smart Wi-fi CCTV Camera | 360° & Full HD Home Security | Full Color Night Vision | 2-Way Talk  Advanced Motion Tracking",
+          detail: "Ultimate Security: Protect your indoor and outdoor spaces with the CP PLUS 3MP Wi-Fi Smart Home Security Plug & Play camera, which enables crisp images that reveal",
+          buttonText: "Add to Cart",
+        });
+        cards.push({
+          imgSrc: "./Assets/24.jpg",
+          title: "D-Link DIR-615 300Mbps Wi-Fi Router | Reliable & Affordable Wi-Fi | Wireless Encryption using WPA™ or WPA2™ | Fast Ethernet ports",
+          detail: "N 300 Mbps wireless Router with high gain Omni Antenna. Dynamic IP (DHCP) : Yes;Support Multiple operating modes: Router Easy Setup: Super simple set-up with the D-Link",
+          buttonText: "Add to Cart",
+        });
+        cards.push({
+          imgSrc: "./Assets/25.jpg",
+          title: "ESR for iPad Air 11 inch Cover M2 (2024), Air (6th/5th/4th Gen) Case, Powerful Magnetic Attachment, Slim Trifold Stand Case, Supports Pencil",
+          detail: "Supports Pencil Pro and Pencil (USB-C): this iPad Pro case fully supports Pencil Pro with a recessed side groove for magnetic charging and a magnetic clasp to keep",
+          buttonText: "Add to Cart",
+        });
+        cards.push({
+          imgSrc: "./Assets/26.jpg",
+          title: "Offbeat - Atom Dual Bluetooth 5.1+5.1 & 2.4Ghz Wireless, Type-C Rechargeable Silent Click Mouse, Triple Device connectivity Windows, Mac, iOS, Android",
+          detail: "【TRIPLE MODE CONNECTIVITY】 Say goodbye to the hassle of using multiple mice for each device! With the cutting edge and advance technology Offbeat brings you",
+          buttonText: "Add to Cart",
+        });
+        cards.push({
+          imgSrc: "./Assets/27.jpg",
+          title: "Lemorele USB C Multiport Adapter Hub 7-in-2 with Thunderbolt 3, USB 3.0 Ports, 4K HDMI, 100W PD, SD/TF Port, Suitable for MacBook Pro",
+          detail: "This lemorele docking station is designed specifically for macbooks, witch is really powerful, with Thunderbolt 3 port (100W PD), 4K HDMI, SD/TF card reader, 3*USB 3.0 ports",
+          buttonText: "Add to Cart",
+        });
+        cards.push({
+          imgSrc: "./Assets/28.jpg",
+          title: "Rapoo MT760L Wireless Bluetooth Mouse, Ergonomic Design, 4 Adjustable DPI, 8 Programmable Buttons, 90 Days Battery Life, Matte Black",
+          detail: "Supports Pencil Pro and Pencil (USB-C): this iPad Pro case fully supports Pencil Pro with a recessed side groove for magnetic charging and a magnetic clasp to keep",
+          buttonText: "Add to Cart",
+        });
+        cards.push({
+          imgSrc: "./Assets/29.jpg",
+          title: "Focusify Digital Camera, 4K Ultra HD Cameras for Photography, Digital Point and Shoot Camera with 56Mp Autofocus 20X Zoom Anti Shake",
+          detail: "Elevate your photography to new heights with an impressive 56MP sensor, delivering unparalleled levels of detail and clarity. From intricate landscapes to dynamic portraits",
+          buttonText: "Add to Cart",
+        });
+        cards.push({
+          imgSrc: "./Assets/30.jpg",
+          title: "Fujifilm X-S20 26.1MP APS-c X-Trans Sensor|AI Deep Learning|IBIS System Mirrorless Camera|6.2k 30p|Eye/Subject Detection",
+          detail: "X-S20 features a back-illuminated “X-Trans CMOS 4” sensor. X-S20 can chronicle your most extraordinary adventures and everyday moments with a unique filter array that controls",
+          buttonText: "Add to Cart",
+        });
+        cards.push({
+          imgSrc: "./Assets/31.webp",
+          title: "Sony Alpha ILCE 6100L 24.2 MP Mirrorless Digital SLR Camera with 16-50 mm Power Zoom Lens | APS-C Sensor | Fast Auto Focus",
+          detail: "Real time eye AF for still + Animal Eye AF;Real time tracking World fastest 0.02 Sec AF speed with 425 phase detection and contrast points;24.2MP, EXMOR CMOS sensor with outstanding light",
+          buttonText: "Add to Cart",
+        });
+        cards.push({
+          imgSrc: "./Assets/32.jpg",
+          title: "OBAGE Essential -5 2.1 Home Theatre System 80 Watt with HDMI ARC, Digital Bass Treble Control,Bluetooth 5.3v, USB,FM and AUX",
+          detail: "Easy Connectivity: Connect to multiple devices effortlessly. The OBAGE Essential 5 speaker system features HDMI ARC, Bluetooth, USB and RCA inputs, allowing you to easily connect to your computer",
+          buttonText: "Add to Cart",
+        });
+      }
+
+      let cardLimit = 8;
+      let loadedCards = cardLimit;
+
+      function renderCards(limit = cardLimit) {
+        const mainbox = document.getElementById("mainbox");
+        mainbox.innerHTML = "";
+        for (let i = 0; i < limit && i < cards.length; i++) {
+          createCard(
+            cards[i].imgSrc,
+            cards[i].title,
+            cards[i].detail,
+            cards[i].buttonText
+          );
+        }
+      }
+
+      renderCards();
+
+      document
+        .getElementById("viewMore")
+        .addEventListener("click", function () {
+          loadedCards += cardLimit;
+          renderCards(loadedCards);
+
+          if (loadedCards >= cards.length) {
+            document.getElementById("viewMore").style.display = "none";
+          }
+        });
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
